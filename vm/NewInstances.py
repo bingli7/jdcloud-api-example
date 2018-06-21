@@ -75,23 +75,20 @@ class NewInstances(object):
         # Create instances and get the response
         # Return list: str[]
         print 'Creating instances...'
-        self.instanceSpec = InstanceSpec(az=self.az, instanceType=self.instanceType, imageId=self.imageId,\
+        instanceSpec = InstanceSpec(az=self.az, instanceType=self.instanceType, imageId=self.imageId,\
                                          name=self.name, keyNames=None, primaryNetworkInterface=self.networkSpec,\
                                          systemDisk=self.systemDiskSpec, dataDisks=self.dataDiskSpec, description=self.description,\
                                          password=self.password, elasticIp=self.elasticIpSpec, charge=self.chargeSpec)
-        print 'InstanceSpec created...'
 
         # Create Instance Parameters
-        self.newParam = CreateInstancesParameters(self.regionId)
-        self.newParam.setInstanceSpec(self.instanceSpec)
-        self.newParam.setMaxCount(self.maxCount)
+        newParam = CreateInstancesParameters(self.regionId)
+        newParam.setInstanceSpec(instanceSpec)
+        newParam.setMaxCount(self.maxCount)
         # Create Request
-        self.newRequest = CreateInstancesRequest(self.newParam)
-        print 'Request created...'
+        newRequest = CreateInstancesRequest(newParam)
 
         # Client send request
-        print 'Sending request...'
-        resp = self.client.send(self.newRequest)
+        resp = self.client.send(newRequest)
 
         if resp.error is not None:
             print resp.error.code, resp.error.message

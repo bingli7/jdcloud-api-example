@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from jdcloud_sdk.services.vpc.apis.CreateElasticIpsRequest import *
 from jdcloud_sdk.services.vpc.models.ElasticIpSpec import *
 from jdcloud_sdk.services.charge.models.ChargeSpec import *
 from jdcloud_sdk.services.vpc.apis.CreateElasticIpsRequest import *
@@ -18,7 +17,7 @@ class NewElasticIPs(object):
         self.bandwidthMbps = bandwidthMbps
         # bgp or no_bgp
         self.provider = provider
-        # 指定弹性ip地址进行创建，当申请创建多个弹性ip时，必须为空 114.67.235.106
+        # 指定弹性ip地址进行创建，当申请创建多个弹性ip时，必须为空
         self.elasticIpAddress = elasticIpAddress
         # 购买弹性ip数量；取值范围：[1,100]
         self.maxCount = maxCount

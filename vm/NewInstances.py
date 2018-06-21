@@ -46,7 +46,7 @@ class NewInstances(object):
         print 'SubnetID: ' + self.networkSpec.networkInterface.subnetId
 
     def setChargeSpec(self, chargeMode=None, chargeUnit=None, chargeDuration=None):
-        # prepaid_by_duration:预付费，postpaid_by_usage:按用量后付费，postpaid_by_duration:按配置后付费，默认为postpaid_by_duration
+        # chargeMode:   prepaid_by_duration:预付费，postpaid_by_usage:按用量后付费，postpaid_by_duration:按配置后付费，默认为postpaid_by_duration
         self.chargeSpec = ChargeSpec(chargeMode, chargeUnit, chargeDuration)
         print 'ChargeSpec created...'
         print 'ChargeMode: ' + self.chargeSpec.chargeMode
@@ -117,6 +117,9 @@ if __name__ == '__main__':
                                name=instancename, password=password, maxCount=maxCount,\
                                description=description)
 
+    # Set up charge spec
+    chargeMode = 'postpaid_by_duration'
+    myinstances.setChargeSpec(chargeMode=chargeMode)
     # Set up network
     subnetId = 'subnet-pryeobh0fd'
     myinstances.setNetworkSpec(subnetId)

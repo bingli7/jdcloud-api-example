@@ -31,6 +31,52 @@ resp = myClient.send(myRequest)
 
 for i in resp.result['instanceTypes']:
     print 'family: ', i['family']
-    print 'instanceType: ', i['instanceType']
-
-print json.dumps(resp.result,sort_keys=True,indent=2)
+    print 'instanceType: ', i['instanceType'], '\n'
+# family:  g.s
+# instanceType:  g.s1.micro
+#
+# family:  g.s
+# instanceType:  g.s1.small
+print json.dumps(resp.result,indent=2)
+# {
+#   "totalCount": 2,
+#   "instanceTypes": [
+#     {
+#       "family": "g.s",
+#       "cpu": 1,
+#       "memoryMB": 1024,
+#       "state": [
+#         {
+#           "az": "cn-east-2a",
+#           "inStock": true
+#         },
+#         {
+#           "az": "cn-east-2b",
+#           "inStock": true
+#         }
+#       ],
+#       "nicLimit": 2,
+#       "instanceType": "g.s1.micro",
+#       "desc": ""
+#     },
+#     {
+#       "family": "g.s",
+#       "cpu": 1,
+#       "memoryMB": 2048,
+#       "state": [
+#         {
+#           "az": "cn-east-2a",
+#           "inStock": true
+#         },
+#         {
+#           "az": "cn-east-2b",
+#           "inStock": true
+#         }
+#       ],
+#       "nicLimit": 2,
+#       "instanceType": "g.s1.small",
+#       "desc": ""
+#     }
+#   ],
+#   "specificInstanceTypes": null
+# }

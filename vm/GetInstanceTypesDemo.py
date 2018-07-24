@@ -21,6 +21,7 @@ myFilter.append(filter_2)
 
 myParam = DescribeInstanceTypesParameters(regionId=regionId)
 myParam.setFilters(myFilter)
+
 myRequest = DescribeInstanceTypesRequest(parameters=myParam)
 
 myCredential = Credential(access_key, secret_key)
